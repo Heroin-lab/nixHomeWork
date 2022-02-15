@@ -48,11 +48,11 @@ function htmlConstructor(products) {
     for (let i = 0; i < obj.length; i++) {
         element.innerHTML +=
             `<div id="element">
-                 <h3 id="name">${obj[i].Product_name}</h3>
-                 <p id="prod_type">${obj[i].Prod_type_name}</p>
-                 <h2 id="price">${obj[i].Price}</h2>
-                 <img id="image" src="${obj[i].Img}" alt="#">
-                 <p id="supp_name">${obj[i].Supplier}</p>
+                 <h3 id="name">${products[i].Product_name}</h3>
+                 <p id="prod_type">${products[i].Prod_type_name}</p>
+                 <h2 id="price">${products[i].Price}</h2>
+                 <img id="image" src="${products[i].Img}" alt="#">
+                 <p id="supp_name">${products[i].Supplier}</p>
             </div>`
     }
 }
