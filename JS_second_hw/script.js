@@ -28,15 +28,7 @@ let serverResp = [
     }
 ]
 
-let productType = {
-    category_name:"burger",
-    permissions: [
-        "*://developer.mozilla.org/*",
-        "webRequest"
-    ],
-}
-
-async function getAllProducts(data) {
+async function getAllProducts() {
     let response = await fetch("http://localhost:7777/get-items-by-category",{
         mode: "cors",
         method: "POST",
@@ -44,7 +36,7 @@ async function getAllProducts(data) {
             "Accept":"*/*",
             "Content-type":"application/json"
         },
-        body: JSON.stringify(data)
+        body: JSON.stringify({category_name:"burger",})
     })
 
     htmlConstructor(await response.json())
@@ -65,7 +57,7 @@ function htmlConstructor(obj) {
     }
 }
 
-window.onload = getAllProducts(productType)
+window.onload = getAllProducts()
 
 // 2
 const copy = obj => {
