@@ -42,7 +42,7 @@ async function getAllProducts() {
     htmlConstructor(products)
 }
 
-function htmlConstructor(obj) {
+function htmlConstructor(products) {
     let element = document.getElementById("elements")
 
     for (let i = 0; i < obj.length; i++) {
