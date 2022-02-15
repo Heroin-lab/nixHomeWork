@@ -38,8 +38,8 @@ async function getAllProducts() {
         },
         body: JSON.stringify({category_name:"burger",})
     })
-
-    htmlConstructor(await response.json())
+    let products = await response.json()
+    htmlConstructor(products)
 }
 
 function htmlConstructor(obj) {
