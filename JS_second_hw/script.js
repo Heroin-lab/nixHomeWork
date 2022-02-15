@@ -28,6 +28,12 @@ let serverResp = [
     }
 ]
 
+async function main(){
+    const products = await getAllProducts()
+
+    htmlConstructor(products)
+}
+
 async function getAllProducts() {
     let response = await fetch("http://localhost:7777/get-items-by-category",{
         mode: "cors",
@@ -38,14 +44,14 @@ async function getAllProducts() {
         },
         body: JSON.stringify({category_name:"burger",})
     })
-    let products = await response.json()
-    htmlConstructor(products)
+
+    return await response.json()
 }
 
 function htmlConstructor(products) {
     let element = document.getElementById("elements")
 
-    for (let i = 0; i < obj.length; i++) {
+    for (let i = 0; i < products.length; i++) {
         element.innerHTML +=
             `<div id="element">
                  <h3 id="name">${products[i].Product_name}</h3>
@@ -57,7 +63,7 @@ function htmlConstructor(products) {
     }
 }
 
-window.onload = getAllProducts()
+window.onload = main()
 
 // 2
 const copy = obj => {
